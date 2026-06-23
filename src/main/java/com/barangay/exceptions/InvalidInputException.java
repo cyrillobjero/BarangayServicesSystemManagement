@@ -1,5 +1,8 @@
-package main.java.com.barangay.exceptions;
+package com.barangay.exceptions;
 
-public class InvalidInputException {
-    
+public class InvalidInputException extends Exception {
+
+    public InvalidInputException(String message) {
+        super(message);
+    }
 }
