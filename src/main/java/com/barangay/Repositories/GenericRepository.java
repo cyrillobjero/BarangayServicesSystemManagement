@@ -1,5 +1,13 @@
-package main.java.com.barangay.Repositories;
+package com.barangay.repositories;
 
-public class GenericRepository {
-    
+import java.util.List;
+
+public interface GenericRepository<T> {
+
+    void add(T item);
+
+    void remove(T item);
+
+    List<T> getAll();
+
 }
