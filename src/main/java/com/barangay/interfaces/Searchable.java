@@ -1,5 +1,8 @@
-package main.java.com.barangay.interfaces;
+package com.barangay.interfaces;
 
-public class Searchable {
-    
+import java.util.List;
+
+public interface Searchable<T> {
+
+    List<T> search(String keyword);
 }
