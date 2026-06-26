@@ -1,5 +1,13 @@
-package main.java.com.barangay.utils;
+package com.barangay.utils;
+
+import java.util.UUID;
 
 public class IdGenerator {
-    
+
+    public static String generateId() {
+
+        return UUID.randomUUID()
+                .toString()
+                .substring(0, 8);
+    }
 }
