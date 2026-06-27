@@ -31,7 +31,6 @@ public class ResidentRepository
         return new ArrayList<>(residents);
     }
 
-    @Override
     public Resident searchById(String id) {
 
         for (Resident resident : residents) {
@@ -42,5 +41,21 @@ public class ResidentRepository
         }
 
         return null;
+    }
+
+    @Override
+    public List<Resident> search(String keyword) {
+        List<Resident> results = new ArrayList<>();
+
+        for (Resident resident : residents) {
+            if (resident.getResidentId().equalsIgnoreCase(keyword)
+                    || resident.getFirstName().equalsIgnoreCase(keyword)
+                    || resident.getLastName().equalsIgnoreCase(keyword)
+                    || resident.getAddress().equalsIgnoreCase(keyword)) {
+                results.add(resident);
+            }
+        }
+
+        return results;
     }
 }

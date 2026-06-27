@@ -1,8 +1,10 @@
 package com.barangay.interfaces;
 
+import com.barangay.models.ServiceStatus;
+
 public interface Trackable {
 
-    void updateStatus(String status);
+    void updateStatus(ServiceStatus status);
 
-    String getStatus();
+    ServiceStatus getStatus();
 }
