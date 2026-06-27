@@ -31,7 +31,6 @@ public class RequestRepository
         return new ArrayList<>(requests);
     }
 
-    @Override
     public BarangayService searchById(String id) {
 
         for (BarangayService request : requests) {
@@ -44,5 +43,19 @@ public class RequestRepository
         }
 
         return null;
+    }
+
+    @Override
+    public List<BarangayService> search(String keyword) {
+        List<BarangayService> results = new ArrayList<>();
+
+        for (BarangayService request : requests) {
+            if (request.getRequestId().equalsIgnoreCase(keyword)
+                    || request.getResidentId().equalsIgnoreCase(keyword)) {
+                results.add(request);
+            }
+        }
+
+        return results;
     }
 }

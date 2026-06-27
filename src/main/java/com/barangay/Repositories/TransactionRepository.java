@@ -31,7 +31,6 @@ public class TransactionRepository
         return new ArrayList<>(transactions);
     }
 
-    @Override
     public TransactionLog searchById(String id) {
 
         for (TransactionLog transaction : transactions) {
@@ -44,5 +43,19 @@ public class TransactionRepository
         }
 
         return null;
+    }
+
+    @Override
+    public List<TransactionLog> search(String keyword) {
+        List<TransactionLog> results = new ArrayList<>();
+
+        for (TransactionLog transaction : transactions) {
+            if (transaction.getTransactionId().equalsIgnoreCase(keyword)
+                    || transaction.getDescription().equalsIgnoreCase(keyword)) {
+                results.add(transaction);
+            }
+        }
+
+        return results;
     }
 }

@@ -7,7 +7,7 @@ public class Clerk extends Staff {
     }
 
     @Override
-    public void displayRole() {
-        System.out.println("Role: CLERK");
+    public void performDuty() {
+        System.out.println("Clerk is assisting residents.");
     }
 }
