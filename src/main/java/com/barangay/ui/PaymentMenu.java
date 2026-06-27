@@ -10,6 +10,8 @@ public class PaymentMenu {
                 ==========================
                 1. Cash Payment
                 2. GCash Payment
+                3. Card Payment
                 """);
     }
 }
+
