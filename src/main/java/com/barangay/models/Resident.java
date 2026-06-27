@@ -28,10 +28,12 @@ public class Resident {
     }
 
     public void setResidentId(String residentId) {
-        if (residentId == null || residentId.isBlank()) {
+
+        if (residentId == null || residentId.trim().isEmpty()) {
             throw new IllegalArgumentException(
                     "Resident ID cannot be empty.");
         }
+
         this.residentId = residentId;
     }
 
@@ -40,10 +42,12 @@ public class Resident {
     }
 
     public void setFirstName(String firstName) {
-        if (firstName == null || firstName.isBlank()) {
+
+        if (firstName == null || firstName.trim().isEmpty()) {
             throw new IllegalArgumentException(
                     "First name cannot be empty.");
         }
+
         this.firstName = firstName;
     }
 
@@ -52,10 +56,12 @@ public class Resident {
     }
 
     public void setLastName(String lastName) {
-        if (lastName == null || lastName.isBlank()) {
+
+        if (lastName == null || lastName.trim().isEmpty()) {
             throw new IllegalArgumentException(
                     "Last name cannot be empty.");
         }
+
         this.lastName = lastName;
     }
 
@@ -64,10 +70,12 @@ public class Resident {
     }
 
     public void setAge(int age) {
-        if (age < 0) {
+
+        if (age <= 0) {
             throw new IllegalArgumentException(
-                    "Age cannot be negative.");
+                    "Age must be greater than zero.");
         }
+
         this.age = age;
     }
 
@@ -76,17 +84,19 @@ public class Resident {
     }
 
     public void setAddress(String address) {
-        if (address == null || address.isBlank()) {
+
+        if (address == null || address.trim().isEmpty()) {
             throw new IllegalArgumentException(
                     "Address cannot be empty.");
         }
+
         this.address = address;
     }
 
     @Override
     public String toString() {
         return String.format(
-                "[%s] %s %s | Age: %d | Address: %s",
+                "%s | %s %s | Age: %d | %s",
                 residentId,
                 firstName,
                 lastName,
@@ -97,19 +107,14 @@ public class Resident {
 
     @Override
     public boolean equals(Object obj) {
-
         if (this == obj) {
             return true;
         }
-
-        if (!(obj instanceof Resident resident)) {
+        if (obj == null || getClass() != obj.getClass()) {
             return false;
         }
-
-        return Objects.equals(
-                residentId,
-                resident.residentId
-        );
+        Resident resident = (Resident) obj;
+        return residentId.equals(resident.residentId);
     }
 
     @Override

@@ -26,7 +26,7 @@ public class TransactionLog
     public void setTransactionId(String transactionId) {
 
         if (transactionId == null ||
-                transactionId.isBlank()) {
+                transactionId.trim().isEmpty()) {
 
             throw new IllegalArgumentException(
                     "Transaction ID cannot be empty.");
@@ -42,7 +42,7 @@ public class TransactionLog
     public void setDescription(String description) {
 
         if (description == null ||
-                description.isBlank()) {
+                description.trim().isEmpty()) {
 
             throw new IllegalArgumentException(
                     "Description cannot be empty.");
@@ -75,9 +75,10 @@ public class TransactionLog
 
         if (this == obj) return true;
 
-        if (!(obj instanceof TransactionLog log))
+        if (!(obj instanceof TransactionLog))
             return false;
 
+        TransactionLog log = (TransactionLog) obj;
         return transactionId.equals(
                 log.transactionId);
     }

@@ -6,7 +6,7 @@ public class ValidationService {
             String value) {
 
         return value != null &&
-               !value.isBlank();
+               !value.trim().isEmpty();
     }
 
     public boolean isValidAge(

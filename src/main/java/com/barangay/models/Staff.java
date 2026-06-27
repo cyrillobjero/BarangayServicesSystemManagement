@@ -4,78 +4,64 @@ import java.util.Objects;
 
 public abstract class Staff {
 
-    private String employeeId;
-    private String fullName;
+    private String staffId;
+    private String name;
 
-    public Staff(String employeeId,
-                 String fullName) {
+    public Staff(String staffId, String name) {
 
-        setEmployeeId(employeeId);
-        setFullName(fullName);
+        setStaffId(staffId);
+        setName(name);
     }
 
-    public String getEmployeeId() {
-        return employeeId;
+    public String getStaffId() {
+        return staffId;
     }
 
-    public void setEmployeeId(String employeeId) {
+    public void setStaffId(String staffId) {
 
-        if (employeeId == null ||
-                employeeId.isBlank()) {
-
+        if (staffId == null || staffId.trim().isEmpty()) {
             throw new IllegalArgumentException(
-                    "Employee ID cannot be empty.");
+                    "Staff ID cannot be empty.");
         }
 
-        this.employeeId = employeeId;
+        this.staffId = staffId;
     }
 
-    public String getFullName() {
-        return fullName;
+    public String getName() {
+        return name;
     }
 
-    public void setFullName(String fullName) {
+    public void setName(String name) {
 
-        if (fullName == null ||
-                fullName.isBlank()) {
-
+        if (name == null || name.trim().isEmpty()) {
             throw new IllegalArgumentException(
-                    "Full name cannot be empty.");
+                    "Name cannot be empty.");
         }
 
-        this.fullName = fullName;
+        this.name = name;
     }
 
-    public abstract void performDuty();
+    public abstract void displayRole();
 
     @Override
     public String toString() {
-        return String.format(
-                "Employee ID: %s | Name: %s",
-                employeeId,
-                fullName
-        );
+        return staffId + " - " + name;
     }
 
     @Override
     public boolean equals(Object obj) {
 
-        if (this == obj) {
-            return true;
-        }
+        if (this == obj) return true;
 
-        if (!(obj instanceof Staff staff)) {
+        if (!(obj instanceof Staff))
             return false;
-        }
 
-        return Objects.equals(
-                employeeId,
-                staff.employeeId
-        );
+        Staff staff = (Staff) obj;
+        return staffId.equals(staff.staffId);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(employeeId);
+        return Objects.hash(staffId);
     }
 }
