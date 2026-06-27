@@ -7,9 +7,9 @@ import com.barangay.payments.CashPayment;
 import com.barangay.payments.GCashPayment;
 import com.barangay.payments.CardPayment;
 
-import com.barangay.repositories.ResidentRepository;
-import com.barangay.repositories.RequestRepository;
-import com.barangay.repositories.TransactionRepository;
+import com.barangay.Repositories.ResidentRepository;
+import com.barangay.Repositories.RequestRepository;
+import com.barangay.Repositories.TransactionRepository;
 
 import com.barangay.requests.DocumentRequest;
 import com.barangay.requests.BarangayService;
